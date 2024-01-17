@@ -1,7 +1,7 @@
 trigger:
   branches:
     exclude:
-    - '*'
+      - '*'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -19,8 +19,8 @@ steps:
 
 - script: |
     aws configure set aws_access_key_id $(AKIAXFYQZFAIWU5T22H6)
-    aws configure set aws_secret_access_key $(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)
-    aws configure set default.region $(us-east-1)
+    aws configure set aws_secret_access_key "$(Or96v308E+8LBQyKJG6N0LRaHadnMFmKFKeotv06)"
+    aws configure set default.region us-east-1
   displayName: 'Configure AWS CLI'
 
 - script: |
