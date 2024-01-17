@@ -18,11 +18,13 @@ steps:
   displayName: 'Install AWS CLI'
 
 - script: |
-    aws configure set aws_access_key_id $(AKIAXFYQZFAIWU5T22H6)
-    aws configure set aws_secret_access_key "$(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)"
-    aws configure set default.region us-east-1
+    export AWS_ACCESS_KEY_ID=$(AKIAXFYQZFAIWU5T22H6)
+    export AWS_SECRET_ACCESS_KEY=$(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)
+ 
   displayName: 'Configure AWS CLI'
 
 - script: |
+    aws configure list
+    env | grep AWS
     aws s3 cp $(Build.SourcesDirectory)/pythonfile.py s3://cpktnwt/
   displayName: 'Copy Python file to S3'
